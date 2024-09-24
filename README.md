@@ -42,11 +42,11 @@ npm install express axios cheerio cors
 1. قم بتثبيت Node.js على جهازك إذا لم يكن مثبتًا بالفعل.
 2. استنسخ هذا المستودع إلى جهازك المحلي:
    ```
-   git clone https://github.com/yourusername/book-search-guide.git
+   git clone https://github.com/farsabdraouf/dalil-book.git
    ```
 3. انتقل إلى مجلد المشروع:
    ```
-   cd book-search-guide
+   cd dalil-book
    ```
 4. قم بتثبيت التبعيات:
    ```
