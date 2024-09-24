@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="container mx-auto p-4">
+      <button id="scrollToTopButton" class="hidden fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-opacity duration-300">
+        ⬆️ أعلى
+      </button>
+    
+        <h1 class="text-4xl font-bold text-center mb-8 text-blue-400">دليل</h1>
+        <h2 class="text-1xl text-center mb-8 text-blue-400">دليلك نحو أي كتاب</h2>
+        
+        <form id="searchForm" class="mb-8">
+            <div class="flex items-center justify-center">
+                <input type="text" id="searchInput" placeholder="ابحث عن كتاب..." 
+                       class="w-full max-w-md px-4 py-2 rounded-r-lg border-2 border-blue-500 bg-gray-800 text-white focus:outline-none focus:border-blue-400">
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2.5 rounded-l-lg hover:bg-blue-600 transition duration-300">بحث</button>
+            </div>
+            <div id="suggestionsBox" class="bg-gray-800 text-white max-w-md mx-auto mt-2 rounded-lg shadow-lg"></div>
+        </form>
+
+        <div id="loadingMessage" class="text-center hidden">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-400"></div>
+            <p class="mt-2 text-gray-400">جارٍ التحميل...</p>
+        </div>
+
+        <div id="errorMessage" class="text-center text-red-400 hidden"></div>
+
+        <div id="booksContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+    </div>
+
+    <div id="bookDetailsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden">
+        <div class="modal-content">
+          <div class="book-details">
+            <div class="book-main-info">
+              <img id="bookImage" src="" alt="صورة الكتاب" class="book-image">
+              <div class="book-info">
+                <h3 id="bookTitle"></h3>
+                <p><strong>المؤلف:</strong> <span id="bookAuthor"></span></p>
+                <p><strong>الفئة:</strong> <span id="bookCategory"></span></p>
+                <p><strong>عدد الصفحات:</strong> <span id="bookPages"></span></p>
+                <p><strong>اللغة:</strong> <span id="bookLanguage"></span></p>
+                <p><strong>الحجم:</strong> <span id="bookSize"></span></p>
+                <p><strong>نوع الملف:</strong> <span id="bookFileType"></span></p>
+              </div>
+            </div>
+            <div class="book-description-container">
+              <h4>الوصف:</h4>
+              <div class="book-description">
+                <p id="bookDescription"></p>
+              </div>
+            </div>
+          </div>
+          <button id="closeModal" class="close-button">إغلاق</button>
+        </div>
+      </div>
+
+    <script src="script.js"></script>
+    <footer class="footer bg-gray-900 text-gray-400 text-center py-4">
+      <p>📘تم التطوير بواسطة📖<a href="https://github.com/farsabdraouf" class="text-blue-400 hover:text-blue-600 transition duration-300">فارس عبد الرؤوف</a>📘</p>
+  </footer>
+  
+</body>
+</html>
