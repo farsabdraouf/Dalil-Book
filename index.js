@@ -98,3 +98,14 @@ app.get('/book', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.get('/proxy-image', async (req, res) => {
+    const imageUrl = req.query.url;
+    try {
+      const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+      res.set('Content-Type', response.headers['content-type']);
+      res.send(response.data);
+    } catch (error) {
+      res.status(404).send('Image not found');
+    }
+  });

@@ -101,7 +101,7 @@ function displayBooks(books) {
         bookCard.className = 'book-card p-4 cursor-pointer fade-in';
         bookCard.style.animationDelay = `${index * 0.1}s`;
         bookCard.innerHTML = `
-            <img src="${book.imageUrl || '/api/placeholder/200/300'}" alt="${book.title}" class="book-image mb-4">
+            <img src="${book.imageUrl ? `/proxy-image?url=${encodeURIComponent(book.imageUrl)}` : '/api/placeholder/200/300'}" alt="${book.title}" class="book-image mb-4">
             <h3 class="text-xl font-semibold mb-2 text-blue-300">${book.title}</h3>
             <p class="text-gray-400">المؤلف: ${book.author}</p>
         `;
@@ -126,17 +126,24 @@ async function fetchBookDetails(bookUrl) {
 }
 
 function displayBookDetails(book) {
-    // ضبط الصورة
-    document.getElementById('bookImage').src = book.imageUrl || '/api/placeholder/200/300';
+    // تحديث مصدر الصورة لاستخدام الـ proxy
+    const imageUrl = book.imageUrl 
+        ? `/proxy-image?url=${encodeURIComponent(book.imageUrl)}` 
+        : '/api/placeholder/200/300';
+    
+    document.getElementById('bookImage').src = imageUrl;
+    document.getElementById('bookImage').onerror = function() {
+        this.src = '/api/placeholder/200/300';
+    };
 
     // تعيين النص مرة واحدة لكل عنصر
     document.getElementById('bookTitle').textContent = book.title;
-    document.getElementById('bookAuthor').textContent = `${book.author}`;
-    document.getElementById('bookCategory').textContent = `${book.category}`;
-    document.getElementById('bookPages').textContent = `${book.pages}`;
-    document.getElementById('bookLanguage').textContent = `${book.language}`;
-    document.getElementById('bookSize').textContent = `${book.size}`;
-    document.getElementById('bookFileType').textContent = `${book.fileType}`;
+    document.getElementById('bookAuthor').textContent = book.author;
+    document.getElementById('bookCategory').textContent = book.category;
+    document.getElementById('bookPages').textContent = book.pages;
+    document.getElementById('bookLanguage').textContent = book.language;
+    document.getElementById('bookSize').textContent = book.size;
+    document.getElementById('bookFileType').textContent = book.fileType;
     document.getElementById('bookDescription').textContent = book.description;
 
     // عرض نافذة التفاصيل
