@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-gray-100">
-    <div class="container mx-auto p-4">
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <div class="container mx-auto p-4 flex-grow">
       <button id="scrollToTopButton" class="hidden fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-opacity duration-300">
         ⬆️ أعلى
       </button>
@@ -35,7 +35,7 @@
         <div id="booksContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
     </div>
 
-    <div id="bookDetailsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden">
+      <div id="bookDetailsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden">
         <div class="modal-content">
           <div class="book-details">
             <div class="book-main-info">
@@ -62,9 +62,9 @@
       </div>
 
     <script src="script.js"></script>
-    <footer class="footer bg-gray-900 text-gray-400 text-center py-4">
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-auto">
       <p>📘تم التطوير بواسطة📖<a href="https://github.com/farsabdraouf" class="text-blue-400 hover:text-blue-600 transition duration-300">فارس عبد الرؤوف</a>📘</p>
-  </footer>
+    </footer>
   
 </body>
 </html>
